@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator bucin</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 90%;
+            max-width: 400px; /* Maksimal lebar untuk tampilan desktop */
+        }
+        .display {
+            background-color: #eaeaea;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 24px;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        button {
+            width: calc(25% - 10px); /* Menghitung lebar tombol secara dinamis */
+            height: 60px;
+            font-size: 24px;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+            background-color: #ff6f61; /* Warna tombol */
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff3b2f; /* Warna lebih gelap saat hover */
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap; /* Memungkinkan tombol untuk membungkus ke baris berikutnya */
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="button-container">
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('+')">+</button>
+
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('-')">-</button>
+
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('*')">*</button>
+
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="appendToDisplay('/')">/</button>
+    </div>
+
+    <!-- Elemen audio untuk memutar lagu -->
+    <audio id="audio" src="songcoding.mp3"></audio> <!-- Ganti dengan path file MP3 Anda -->
+</div>
+
+<script>
+    function clearDisplay() {
+        document.getElementById('display').innerText = '0';
+    }
+
+    function appendToDisplay(value) {
+        const display = document.getElementById('display');
+        
+        // Jika display masih menunjukkan '0', ganti dengan nilai baru
+        if (display.innerText === '0') {
+            display.innerText = value;
+        } else {
+            display.innerText += value; // Tambahkan nilai ke display
+        }
+    }
+
+    function calculate() {
+        const display = document.getElementById('display');
+        
+        // Tampilkan "I love you Lei"
+        display.innerText = 'I love you <3 <3';
+
+        // Putar audio
+        const audio = document.getElementById('audio');
+        audio.play();
+    }
+</script>
+
+</body>
+</html>
